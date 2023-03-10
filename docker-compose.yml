@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: template-api.postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: A^BCxSFd#%qHv=W79uda
+      POSTGRES_DB: template_api
+    volumes:
+      - ./pg_data/:/data/postgres
+    ports:
+      - "5432:5432"
+  
+  backend:
+    container_name: template-api.backend
+    image: backend
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"

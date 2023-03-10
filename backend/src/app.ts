@@ -14,8 +14,10 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
     res.status(500).json({ message: err.message });
 });
 
+console.log("Tentando conectar banco de dados... ");
+
 connection.sync().then(() => {
-    console.log("Banco de dados inicializado com sucesso.");
+    console.log("Banco de dados conectado com sucesso!");
 }).catch((err) => {
     console.log("[ ERR ]", err);
 });
