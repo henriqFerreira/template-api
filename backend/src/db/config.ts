@@ -1,15 +1,14 @@
 import { Sequelize } from "sequelize-typescript";
-import { User } from "../model/User";
-
-// const connection = new Sequelize("postgres://postgres:A^BCxSFd#%qHv=W79uda@postgres:5432/template_api");
+import User from "../model/User";
 
 const connection = new Sequelize(
     "template_api",
     "postgres",
     "A^BCxSFd#%qHv=W79uda",
     {
-        host: "postgres",
         dialect: "postgres",
+        host: "localhost",
+        port: 5432,
         models: [
             User
         ]
